@@ -28,6 +28,10 @@ public class SampleJettyApplication extends SpringBootServletInitializer {
 		SpringApplication.run(SampleJettyApplication.class, args);
 	}
 
+	/**
+	 * This allows web pages to be served from .../main/webapp, which is maven's convention.  
+	 * I'm guessing that Spring/Jetty use this by-convention.
+	 */
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(SampleJettyApplication.class);
