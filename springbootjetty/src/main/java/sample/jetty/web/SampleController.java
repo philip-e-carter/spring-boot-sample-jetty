@@ -35,4 +35,9 @@ public class SampleController {
 		return this.helloWorldService.getHelloMessage();
 	}
 
+	@RequestMapping("/html")
+	public String html() {
+		return "index.html";
+	}
+
 }
