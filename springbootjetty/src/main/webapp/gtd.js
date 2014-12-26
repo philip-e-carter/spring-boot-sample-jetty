@@ -1,8 +1,8 @@
 function test() {
-	alert('ok');
 	$.ajax ({
-		url: 'html'
-	}).success( function() {
-		alert('success');
+		url: 'tasks'
+	}).success( function(data) {
+		alert(data);
+		$('#divId').text(data);
 	});
 }

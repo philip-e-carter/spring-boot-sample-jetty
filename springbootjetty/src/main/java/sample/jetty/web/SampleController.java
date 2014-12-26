@@ -40,4 +40,10 @@ public class SampleController {
 		return "index.html";
 	}
 
+	@RequestMapping("/tasks")
+	@ResponseBody
+	public String tasks() {
+		return "Tasks here";
+	}
+
 }
