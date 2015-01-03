@@ -3,6 +3,7 @@ function test() {
 		url: 'tasks'
 	}).success( function(data) {
 		$('#divId').text(data);
-		$('#house').offset({ top: 10, left: 30 });
+		// jQuery doesnt seem to support relative; create function to get page size and scale?
+		$('#house').offset({ top: 200, left: 300 });
 	});
 }
