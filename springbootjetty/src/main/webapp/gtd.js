@@ -1,6 +1,7 @@
 $(document).ready( function() {
     $('#example').dataTable( {
         "ajax": 'tasks',
+        "sAjaxDataProp": "data",
         "aaData" : "data"
     } );
 });
