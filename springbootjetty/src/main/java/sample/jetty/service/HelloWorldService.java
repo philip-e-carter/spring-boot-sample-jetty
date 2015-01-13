@@ -16,6 +16,9 @@
 
 package sample.jetty.service;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -27,6 +30,12 @@ public class HelloWorldService {
 
 	public String getHelloMessage() {
 		return "Hello " + this.name;
+	}
+	
+	public Collection<Task> getTasks() {
+		Collection<Task> tasks = new ArrayList<Task>(); 
+		tasks.add(new Task("Buy milk", "Around Town", 3));
+		return tasks;
 	}
 
 }

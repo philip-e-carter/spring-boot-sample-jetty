@@ -1,6 +1,13 @@
+$(document).ready( function() {
+    $('#example').dataTable( {
+        "ajax": 'tasks',
+        "aaData" : "data"
+    } );
+});
+
 function test() {
 	$.ajax ({
-		url: 'tasks'
+		url: 'test'
 	}).success( function(data) {
 		$('#divId').text(data);
 		// jQuery doesnt seem to support relative; create function to get page size and scale?

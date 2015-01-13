@@ -16,12 +16,15 @@
 
 package sample.jetty.web;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import sample.jetty.service.HelloWorldService;
+import sample.jetty.service.Task;
 
 @Controller
 public class SampleController {
@@ -40,10 +43,21 @@ public class SampleController {
 		return "index.html";
 	}
 
+	@RequestMapping("/test")
+	public String test() {
+		return "Tasks here";
+	}
+
 	@RequestMapping("/tasks")
 	@ResponseBody
-	public String tasks() {
-		return "Tasks here";
+	public DataTable tasks() {
+		DataTable d = new DataTable();
+		d.setData(helloWorldService.getTasks());
+		d.setiTotalDisplayRecords(1);
+		d.setiTotalRecords(1);
+		d.setsColumns("description");
+		d.setsEcho("3");
+		return d;
 	}
 
 }
