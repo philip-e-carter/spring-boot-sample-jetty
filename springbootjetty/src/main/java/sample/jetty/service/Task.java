@@ -4,7 +4,7 @@ public class Task {
 
 	private String description;
 
-	public Task(String description, String context, Integer priority) {
+	public Task(String description) {
 		super();
 		this.description = description;
 	}

@@ -1,9 +1,45 @@
 $(document).ready( function() {
-    $('#example').dataTable( {
-        "ajax": 'tasks',
-        "sAjaxDataProp": "data",
-        "aaData" : "data"
-    } );
+//    $('#example').dataTable( {
+//        "ajax": 'tasks',
+//        "data": "description"                   
+//    } );
+//    
+//    var dataSet = [
+//                   ['Trident','Internet Explorer 4.0','Win 95+','4','X'],
+//                   ['Trident','Internet Explorer 5.0','Win 95+','5','C'],
+//                   ['Trident','Internet Explorer 5.5','Win 95+','5.5','A'],
+//                 ];
+//    
+//    $('#example2').dataTable( {
+//        "data": dataSet,
+//        "columns": [
+//            { "title": "Engine" },
+//            { "title": "Browser" },
+//            { "title": "Platform" },
+//            { "title": "Version", "class": "center" },
+//            { "title": "Grade", "class": "center" }
+//        ]
+//    } );   
+
+	    $("#list").jqGrid({
+	        url: "jqgridData",
+	        datatype: "json",
+	        mtype: "GET",
+	        colNames: ["Desc"],
+	        colModel: [
+	            { name: "description", width: 55 }
+	        ],
+	        pager: "#pager",
+	        rowNum: 10,
+	        rowList: [10, 20, 30],
+	        sortname: "invid",
+	        sortorder: "desc",
+	        viewrecords: true,
+	        gridview: true,
+	        autoencode: true,
+	        caption: "My first grid"
+	    }); 
+
 });
 
 function test() {

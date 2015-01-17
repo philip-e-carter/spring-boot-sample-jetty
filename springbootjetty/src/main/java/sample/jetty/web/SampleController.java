@@ -16,6 +16,7 @@
 
 package sample.jetty.web;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import sample.jetty.service.HelloWorldService;
 import sample.jetty.service.Task;
-
 @Controller
 public class SampleController {
 
@@ -37,13 +37,45 @@ public class SampleController {
 	public String helloWorld() {
 		return this.helloWorldService.getHelloMessage();
 	}
-
+	
 	@RequestMapping("/html")
 	public String html() {
 		return "index.html";
 	}
 
+	@RequestMapping("/html1")
+	public String html1() {
+		return "test.html";
+	}
+	
+	@RequestMapping("/slick")
+	public String slick() {
+		return "SlickGrid.html";
+	}
+	
+	@RequestMapping("/test1")
+	public String test1() {
+		return "test.html";
+	}
+	
+	@RequestMapping("/jqgrid")
+	public String jqgrid() {
+		return "jqgridtest.html";
+	}
+		
+	@RequestMapping("/jqgridData")
+	@ResponseBody
+	public Collection jqgridData() {
+		Collection c = new ArrayList();
+		Task t = new Task("Milk cows");
+		c.add(t);
+		return c;
+	}
+	
+	
+
 	@RequestMapping("/test")
+	@ResponseBody
 	public String test() {
 		return "Tasks here";
 	}
@@ -53,10 +85,10 @@ public class SampleController {
 	public DataTable tasks() {
 		DataTable d = new DataTable();
 		d.setData(helloWorldService.getTasks());
-		d.setiTotalDisplayRecords(1);
-		d.setiTotalRecords(1);
-		d.setsColumns("description");
-		d.setsEcho("3");
+//		d.setiTotalDisplayRecords(1);
+//		d.setiTotalRecords(1);
+//		d.setsColumns("description");
+//		d.setsEcho("3");
 		return d;
 	}
 
