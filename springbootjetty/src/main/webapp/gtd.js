@@ -25,9 +25,10 @@ $(document).ready( function() {
 	        url: "jqgridData",
 	        datatype: "json",
 	        mtype: "GET",
+	        width: 600,
 	        colNames: ["ID", "Description", "Context"],
 	        colModel: [
-	            { name: "id", width:4}, {name: "description", width: 55 }, {name: "context", width: 20}
+	            { name: "id", width:4}, {name: "description", width: 40 }, {name: "context", width: 20}
 	        ],
 	        pager: "#pager",
 	        rowNum: 10,
