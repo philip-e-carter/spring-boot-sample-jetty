@@ -1,23 +1,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>My First Grid</title>
- 
-<link rel="stylesheet" type="text/css" media="screen" href="css/jquery-ui.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="jqGrid/css/ui.jqgrid.css" />
- 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>My First Grid</title>
+         
+        <link rel="stylesheet" type="text/css" media="screen" href="css/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="jqGrid/css/ui.jqgrid.css" />
+         
         <script src="jQuery-1.11.2.js" ></script>
-<script src="jqGrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
-<script src="jqGrid/js/jquery.jqGrid.src.js" type="text/javascript"></script>
-        <script src="gtd.js" ></script>
- 
-</head>
-<body>
+        <script src="jqGrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
+        <script src="jqGrid/js/jquery.jqGrid.src.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+            $(document).ready( function() {
+                $("#list").jqGrid({
+                    url: "jqgridData",
+                    datatype: "json",
+                    mtype: "GET",
+                    width: 600,
+                    colNames: ["ID", "Description", "Context", "Status"],
+                    colModel: [
+                        {name: "description", width: 40 , sortable: true}, 
+                        {name: "context", width: 20, sortable: true}, 
+                        {name: "id", width:4, sortable: true}, 
+                        {name: "status", width: 4, sortable: true}
+                    ],
+                    pager: "#pager",
+                    rowNum: 10,
+                    rowList: [10, 20, 30],
+                    sortname: "description",
+                    sortorder: "desc",
+                    viewrecords: true,
+                    gridview: true,
+                    caption: "Tasks"
+                }); 
+            });
+        </script> 
+    </head>
 
-    <table id="list"></table>
-    <div id="pager"></div> 
-    
-</body>
+    <body>
+        <table id="list"></table>
+        <div id="pager"></div> 
+    </body>
+
 </html>
