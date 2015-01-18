@@ -23,7 +23,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import sample.jetty.service.HelloWorldService;
+import sample.jetty.service.GtdService;
 import sample.jetty.service.Task;
 
 /**
@@ -38,10 +38,10 @@ import sample.jetty.service.Task;
  * 
  */
 @Controller
-public class SampleController {
+public class GtdController {
 
 	@Autowired
-	private HelloWorldService helloWorldService;
+	private GtdService helloWorldService;
 
 	// Redirects to the main page.
 	// http://localhost:8080/

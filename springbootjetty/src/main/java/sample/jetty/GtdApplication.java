@@ -22,10 +22,10 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class SampleJettyApplication extends SpringBootServletInitializer {
+public class GtdApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(SampleJettyApplication.class, args);
+		SpringApplication.run(GtdApplication.class, args);
 	}
 
 	/**
@@ -34,6 +34,6 @@ public class SampleJettyApplication extends SpringBootServletInitializer {
 	 */
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(SampleJettyApplication.class);
+		return application.sources(GtdApplication.class);
 	}
 }
