@@ -31,10 +31,10 @@ public class HelloWorldService {
 	public String getHelloMessage() {
 		return "Hello " + this.name;
 	}
-	
+
 	public Collection<Task> getTasks() {
-		Collection<Task> tasks = new ArrayList<Task>(); 
-		tasks.add(new Task("Buy milk", "Around Town", 3));
+		final Collection<Task> tasks = new ArrayList<Task>();
+		tasks.add(new Task(1, "Buy milk", "Around Town"));
 		return tasks;
 	}
 

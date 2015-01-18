@@ -25,9 +25,9 @@ $(document).ready( function() {
 	        url: "jqgridData",
 	        datatype: "json",
 	        mtype: "GET",
-	        colNames: ["Desc"],
+	        colNames: ["ID", "Description", "Context"],
 	        colModel: [
-	            { name: "description", width: 55 }
+	            { name: "id", width:4}, {name: "description", width: 55 }, {name: "context", width: 20}
 	        ],
 	        pager: "#pager",
 	        rowNum: 10,
@@ -37,7 +37,7 @@ $(document).ready( function() {
 	        viewrecords: true,
 	        gridview: true,
 	        autoencode: true,
-	        caption: "My first grid"
+	        caption: "Tasks"
 	    }); 
 
 });

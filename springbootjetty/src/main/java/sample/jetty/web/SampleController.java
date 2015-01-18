@@ -16,7 +16,6 @@
 
 package sample.jetty.web;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,28 +47,32 @@ public class SampleController {
 		return "test.html";
 	}
 	
-	@RequestMapping("/slick")
-	public String slick() {
-		return "SlickGrid.html";
-	}
-	
-	@RequestMapping("/test1")
-	public String test1() {
-		return "test.html";
-	}
-	
 	@RequestMapping("/jqgrid")
 	public String jqgrid() {
 		return "jqgridtest.html";
 	}
-		
+	
 	@RequestMapping("/jqgridData")
 	@ResponseBody
-	public Collection jqgridData() {
-		Collection c = new ArrayList();
-		Task t = new Task("Milk cows");
-		c.add(t);
-		return c;
+	public Collection<Task> jqgridData() {
+		return helloWorldService.getTasks();
+	}
+	
+	@RequestMapping("/slick")
+	public String slick() {
+		return "SlickGrid.html";
+	}
+		
+	@RequestMapping("/tasks")
+	@ResponseBody
+	public DataTable tasks() {
+		final DataTable d = new DataTable();
+		d.setData(helloWorldService.getTasks());
+//		d.setiTotalDisplayRecords(1);
+//		d.setiTotalRecords(1);
+//		d.setsColumns("description");
+//		d.setsEcho("3");
+		return d;
 	}
 	
 	
@@ -80,16 +83,9 @@ public class SampleController {
 		return "Tasks here";
 	}
 
-	@RequestMapping("/tasks")
-	@ResponseBody
-	public DataTable tasks() {
-		DataTable d = new DataTable();
-		d.setData(helloWorldService.getTasks());
-//		d.setiTotalDisplayRecords(1);
-//		d.setiTotalRecords(1);
-//		d.setsColumns("description");
-//		d.setsEcho("3");
-		return d;
+	@RequestMapping("/test1")
+	public String test1() {
+		return "test.html";
 	}
 
 }
