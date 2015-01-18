@@ -26,14 +26,14 @@ $(document).ready( function() {
 	        datatype: "json",
 	        mtype: "GET",
 	        width: 600,
-	        colNames: ["ID", "Description", "Context"],
+	        colNames: ["ID", "Description", "Context", "Status"],
 	        colModel: [
-	            { name: "id", width:4}, {name: "description", width: 40 }, {name: "context", width: 20}
+	            { name: "id", width:4, sortable: true}, {name: "description", width: 40 , sortable: true}, {name: "context", width: 20, sortable: true}, {name: "status", width: 4, sortable: true}
 	        ],
 	        pager: "#pager",
 	        rowNum: 10,
 	        rowList: [10, 20, 30],
-	        sortname: "invid",
+	        sortname: "description",
 	        sortorder: "desc",
 	        viewrecords: true,
 	        gridview: true,

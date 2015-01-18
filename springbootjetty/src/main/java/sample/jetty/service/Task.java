@@ -2,27 +2,31 @@ package sample.jetty.service;
 
 public class Task {
 
-	private String context;
-	private String description;
 	private Integer id;
+	private String description;
+	private String context;
+	private String status; // e.g., Complete, in-progress.
 
-	public Task(Integer id, String description, String context) {
+	public Task(Integer id, String description, String context, String status) {
 		super();
-		this.id = id;
-		this.description = description;
 		this.context = context;
+		this.description = description;
+		this.id = id;
+		this.status = status;
 	}
 
 	public String getContext() {
 		return context;
 	}
-
 	public String getDescription() {
 		return description;
 	}
 
 	public Integer getId() {
 		return id;
+	}
+	public String getStatus() {
+		return status;
 	}
 
 	public void setContext(String context) {
@@ -37,5 +41,8 @@ public class Task {
 		this.id = id;
 	}
 
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 }

@@ -25,67 +25,59 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import sample.jetty.service.HelloWorldService;
 import sample.jetty.service.Task;
+
+/**
+ *
+ * NOTE: if RequestMapping is the same as the returned html file, it causes a
+ * "Circular view path" error. e.g.:
+ * 
+ * @RequestMapping("/index") public String index() { return "index.html"; } I
+ *                           can only guess that Spring is first stripping the
+ *                           .html from the response and checking for that
+ *                           RequestMapping, causing the circle.
+ * 
+ */
 @Controller
 public class SampleController {
 
 	@Autowired
 	private HelloWorldService helloWorldService;
 
+	// Redirects to the main page.
+	// http://localhost:8080/
 	@RequestMapping("/")
 	@ResponseBody
 	public String helloWorld() {
 		return this.helloWorldService.getHelloMessage();
 	}
-	
+
+	// Displays the main page.
+	// http://localhost:8080/html
 	@RequestMapping("/html")
 	public String html() {
 		return "index.html";
 	}
 
-	@RequestMapping("/html1")
-	public String html1() {
-		return "test.html";
-	}
-	
-	@RequestMapping("/jqgrid")
-	public String jqgrid() {
-		return "jqgridtest.html";
-	}
-	
-	@RequestMapping("/jqgridData")
-	@ResponseBody
-	public Collection<Task> jqgridData() {
-		return helloWorldService.getTasks();
-	}
-	
-	@RequestMapping("/slick")
-	public String slick() {
-		return "SlickGrid.html";
-	}
-		
-	@RequestMapping("/tasks")
-	@ResponseBody
-	public DataTable tasks() {
-		final DataTable d = new DataTable();
-		d.setData(helloWorldService.getTasks());
-//		d.setiTotalDisplayRecords(1);
-//		d.setiTotalRecords(1);
-//		d.setsColumns("description");
-//		d.setsEcho("3");
-		return d;
-	}
-	
-	
-
+	// When user clicks "Click Me" button, use ajax to replace content
+	// "replaceMe"
 	@RequestMapping("/test")
 	@ResponseBody
 	public String test() {
 		return "Tasks here";
 	}
 
-	@RequestMapping("/test1")
-	public String test1() {
-		return "test.html";
+	// Displays the jqgrid test page.
+	// http://localhost:8080/jqgrid
+	@RequestMapping("/jqgrid")
+	public String jqgrid() {
+		return "jqgridtest.html";
+	}
+
+	// Returns the json fragment to populate the jqgrid table.
+	@RequestMapping("/jqgridData")
+	@ResponseBody
+	public Collection<Task> jqgridData() {
+		return helloWorldService.getTasks();
 	}
 
 }
