@@ -1,5 +1,8 @@
 package sample.jetty.service;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Task {
 
 	private Integer id;
