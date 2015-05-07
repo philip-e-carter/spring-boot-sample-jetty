@@ -55,7 +55,8 @@ public class GtdController {
 	// http://localhost:8080/html
 	@RequestMapping("/html")
 	public String html() {
-		return "index.html";
+            System.out.println(helloWorldService.test());
+            return "index.html";
 	}
 
 	// When user clicks "Click Me" button, use ajax to replace content

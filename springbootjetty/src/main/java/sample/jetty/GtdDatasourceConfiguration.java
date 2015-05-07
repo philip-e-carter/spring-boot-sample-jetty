@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 //import org.apache.commons.encourage.BasicDataSource
 
@@ -18,16 +19,16 @@ public class GtdDatasourceConfiguration {
 		return null;
 	}
 
-//            @Bean
-//    public DataSource dataSource() {
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-// 
-//        dataSource.setDriverClassName(env.getRequiredProperty(PROPERTY_NAME_DATABASE_DRIVER));
-//        dataSource.setUrl(env.getRequiredProperty(PROPERTY_NAME_DATABASE_URL));
-//        dataSource.setUsername(env.getRequiredProperty(PROPERTY_NAME_DATABASE_USERNAME));
-//        dataSource.setPassword(env.getRequiredProperty(PROPERTY_NAME_DATABASE_PASSWORD));
-// 
-//        return dataSource;
-//    }
+            @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+ 
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/gtd-db");
+        dataSource.setUsername("root");
+        dataSource.setPassword("");
+ 
+        return dataSource;
+    }
         
 }

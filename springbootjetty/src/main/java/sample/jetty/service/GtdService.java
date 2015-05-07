@@ -18,6 +18,7 @@ package sample.jetty.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -25,6 +26,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class GtdService {
 
+        @Autowired
+        TaskRepository taskRepository;
+    
+        public String test() {
+            return taskRepository.findAll().iterator().next().getDescription();
+        }
+        
 	@Value("${name:World 01}")
 	private String name;
 
