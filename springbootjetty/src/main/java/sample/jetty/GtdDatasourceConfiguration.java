@@ -18,4 +18,16 @@ public class GtdDatasourceConfiguration {
 		return null;
 	}
 
+//            @Bean
+//    public DataSource dataSource() {
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+// 
+//        dataSource.setDriverClassName(env.getRequiredProperty(PROPERTY_NAME_DATABASE_DRIVER));
+//        dataSource.setUrl(env.getRequiredProperty(PROPERTY_NAME_DATABASE_URL));
+//        dataSource.setUsername(env.getRequiredProperty(PROPERTY_NAME_DATABASE_USERNAME));
+//        dataSource.setPassword(env.getRequiredProperty(PROPERTY_NAME_DATABASE_PASSWORD));
+// 
+//        return dataSource;
+//    }
+        
 }

@@ -25,14 +25,14 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 public class GtdApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(GtdApplication.class, args);
+            	SpringApplication.run(GtdApplication.class, args);
 	}
 
 	/**
 	 * This allows web pages to be served from .../main/webapp, which is maven's convention.  
 	 * I'm guessing that Spring/Jetty use this by-convention.
 	 */
-	@Override
+	@Override   
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(GtdApplication.class);
 	}
