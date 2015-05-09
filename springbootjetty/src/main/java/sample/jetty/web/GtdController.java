@@ -41,21 +41,21 @@ import sample.jetty.service.Task;
 public class GtdController {
 
 	@Autowired
-	private GtdService helloWorldService;
+	private GtdService gtdService;
 
 	// Redirects to the main page.
 	// http://localhost:8080/
 	@RequestMapping("/")
 	@ResponseBody
 	public String helloWorld() {
-		return this.helloWorldService.getHelloMessage();
+		return this.gtdService.getHelloMessage();
 	}
 
 	// Displays the main page.
 	// http://localhost:8080/html
 	@RequestMapping("/html")
 	public String html() {
-            System.out.println(helloWorldService.test());
+            System.out.println(gtdService.test());
             return "index.html";
 	}
 
@@ -75,10 +75,11 @@ public class GtdController {
 	}
 
 	// Returns the json fragment to populate the jqgrid table.
+        // http://localhost:8080/jqgridData
 	@RequestMapping("/jqgridData")
 	@ResponseBody
 	public Collection<Task> jqgridData() {
-		return helloWorldService.getTasks();
+		return gtdService.getTasks();
 	}
 
 }

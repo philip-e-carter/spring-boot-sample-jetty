@@ -41,20 +41,21 @@ public class GtdService {
 	}
 
 	public Collection<Task> getTasks() {
-		final Collection<Task> tasks = new ArrayList<Task>();
-		tasks.add(new Task(1, "Buy bread", "Around Town", ""));
-		tasks.add(new Task(2, "Buy milk", "Around Town", ""));
-		tasks.add(new Task(3, "Buy sugar", "Around Town", ""));
-		tasks.add(new Task(4, "Buy eggs", "Around Town", "X"));
-		tasks.add(new Task(5, "Go to hardware store", "Around Town", "X"));
-		tasks.add(new Task(6, "Finances", "Home computer", "X"));
-		tasks.add(new Task(7, "Digitize", "Home computer", "I"));
-		tasks.add(new Task(8, "Research technology", "Internet", "I"));
-		tasks.add(new Task(9, "Call doctor", "Phone", "X"));
-		tasks.add(new Task(10, "Call friends and family", "Phone", "X"));
-		tasks.add(new Task(11, "Program GTD the Game", "Macbook", "X"));
-		tasks.add(new Task(12, "Learn more about Unix", "Macbook", "X"));
-		return tasks;
+            return taskRepository.findAll();
+//		final Collection<Task> tasks = new ArrayList<Task>();
+//		tasks.add(new Task(1, "Buy bread", "Around Town", ""));
+//		tasks.add(new Task(2, "Buy milk", "Around Town", ""));
+//		tasks.add(new Task(3, "Buy sugar", "Around Town", ""));
+//		tasks.add(new Task(4, "Buy eggs", "Around Town", "X"));
+//		tasks.add(new Task(5, "Go to hardware store", "Around Town", "X"));
+//		tasks.add(new Task(6, "Finances", "Home computer", "X"));
+//		tasks.add(new Task(7, "Digitize", "Home computer", "I"));
+//		tasks.add(new Task(8, "Research technology", "Internet", "I"));
+//		tasks.add(new Task(9, "Call doctor", "Phone", "X"));
+//		tasks.add(new Task(10, "Call friends and family", "Phone", "X"));
+//		tasks.add(new Task(11, "Program GTD the Game", "Macbook", "X"));
+//		tasks.add(new Task(12, "Learn more about Unix", "Macbook", "X"));
+//		return tasks;
 	}
 
 }
