@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>My First Grid</title>
+        <title>jq Grid</title>
          
         <link rel="stylesheet" type="text/css" media="screen" href="css/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="jqGrid/css/ui.jqgrid.css" />
@@ -14,6 +14,9 @@
         
         <script type="text/javascript">
             $(document).ready( function() {
+            
+                $("#header").load("header.html");
+              
                 $("#list").jqGrid({
                     url: "jqgridData",
                     datatype: "json",
@@ -40,6 +43,8 @@
     </head>
 
     <body>
+        <div id="header"></div>
+        
         <table id="list"></table>
         <div id="pager"></div> 
     </body>

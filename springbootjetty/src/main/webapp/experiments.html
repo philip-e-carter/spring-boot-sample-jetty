@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <!-- TODO: move to WEB-INF.  Tried once but couldn't get Spring to find it. -->
+    <head>
+        <meta charset="UTF-8">
+        <title>GTD experiments</title>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#header").load("header.html");
+                drawTaskGrid();
+            });
+        </script> 
+
+    </head>
+
+    <body role="document">
+
+        <div id="header"></div>
+        <div class="container theme-showcase" role="main">	
+
+        
+        <div class="jumbotron"> 
+            <h1>Let's Get Started</h1> 
+            <p>It's time to Get.Things.Done!</p> 
+        </div> 
+
+        Bootstrap style grid:
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">All Tasks</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Task</th>
+                            <th>Context</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Buy milk</td>
+                            <td>Around town</td>
+                            <td style="color : red;">Ultra</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Wash the cat</td>
+                            <td>Home</td>
+                            <td>Normal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="javascript:test();">Click Me!</button>
+        <button type="button" class="btn btn-lg btn-link" onclick="javascript:test();">Link</button>
+        <div id="divId">replaceMe</div>
+        <img id="house" src="../css/images/house.jpg" style="position:relative; top:0%; left:0%;" />
+
+        </div>
+    </body>
+
+</html>
