@@ -28,14 +28,13 @@ public class GtdApplication extends SpringBootServletInitializer {
             	SpringApplication.run(GtdApplication.class, args);
 	}
 
-	/**
+	/*
 	 * This allows web pages to be served from .../main/webapp, which is maven's convention.  
-	 * I'm guessing that Spring/Jetty use this by-convention.
+	 * I'm guessing that Spring/Jetty uses this by-convention.
 	 */
 	@Override   
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(GtdApplication.class);
 	}
         
-        // Testing push from NetBeans.
 }
