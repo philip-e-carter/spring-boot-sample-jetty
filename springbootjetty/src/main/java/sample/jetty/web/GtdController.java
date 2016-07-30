@@ -19,12 +19,14 @@ package sample.jetty.web;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import sample.jetty.service.GtdService;
 import sample.jetty.service.Task;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -55,8 +57,8 @@ public class GtdController {
 	// http://localhost:8080/html
 	@RequestMapping("/html")
 	public String html() {
-            System.out.println(gtdService.test());
-            return "index.html";
+		System.out.println(gtdService.test());
+			return "index.html";
 	}
 
 	// When user clicks "Click Me" button, use ajax to replace content
@@ -75,11 +77,21 @@ public class GtdController {
 	}
 
 	// Returns the json fragment to populate the jqgrid table.
-        // http://localhost:8080/jqgridData
+	// http://localhost:8080/jqgridData
 	@RequestMapping("/jqgridData")
 	@ResponseBody
 	public Collection<Task> jqgridData() {
 		return gtdService.getTasks();
 	}
+
+	@RequestMapping(value="/addTask", method=RequestMethod.POST)
+	@ResponseBody
+//	@RequestParam("taskDescription")
+	public Task addTask(HttpServletRequest request) {
+		return gtdService.addTask(request.getParameter("taskDescription"));
+	}
+//	public Task addTask(@PathVariable String taskDescription) {
+//		return gtdService.addTask(taskDescription);
+//	}
 
 }

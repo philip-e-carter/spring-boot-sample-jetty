@@ -26,17 +26,22 @@
 
     <body role="document">
 
-        <!-- a Modal -->
+        <!-- add Task modal -->
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- dialog body -->
                     <div class="modal-body">
+                        Add Task
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        Hello world!
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="taskDescription"/>
                     </div>
                     <!-- dialog buttons -->
-                    <div class="modal-footer"><button id="insertOkButton" type="button" class="btn btn-primary">OK</button></div>
+                    <div class="modal-footer">
+                        <button id="insertOkButton" type="button" class="btn btn-primary">OK</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,11 +101,10 @@
 
 
         <div class="container theme-showcase" role="main">
-            <!--the Tasks grid-->
             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Open Modal</button>
+            <!--the Tasks grid-->
             <table id="list"></table>
             <div id="pager"></div>
-
         </div>
 
     </body>
@@ -134,8 +138,24 @@
             $("#myModal").on("hidden", function () {  // remove the actual elements from the DOM when fully hidden
                 $("#myModal").remove();
             });
+            $("#insertOkButton").on("click", function() {
+                console.log('ok');
+                var desc = $("#taskDescription").val();
+                console.log(desc);
+                $.ajax({
+                    url: 'addTask',
+                    method: 'POST',
+                    data: {
+                        'taskDescription': $("#taskDescription").val()
+                    }
+                }).success(function (data) {
+                    $('#divId').text(data);
+                    // jQuery doesnt seem to support relative; create function to get page size and scale?
+                    $('#house').offset({top: 200, left: 300});
+                });
+            });
 
-            // this breaks the pages javascript
+            // this breaks the pages javascript; opening by click does not
 //            $("#myModal").show();
 
             console.log('done');
