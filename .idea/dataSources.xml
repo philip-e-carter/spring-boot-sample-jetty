@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="638502464">
+  <component name="DataSourceManagerImpl" format="xml" hash="1524680673">
     <data-source source="LOCAL" name="MySQL - gtd-db@localhost" uuid="35669e6c-1e25-4a29-a1a9-2f6e52c35e88">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>

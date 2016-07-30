@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 @Component
 public class GtdService {
@@ -41,13 +42,27 @@ public class GtdService {
 	}
 
 	public Collection<Task> getTasks() {
-		return taskRepository.findAll();
+		Collection<Task> tasks = taskRepository.findAll();
+		System.out.println("Tasks found: " + tasks.size());
+		return tasks;
 	}
 
-	public Task addTask(String taskDescription) {
+	public Task addTask(String taskId, String taskDescription, String taskContext, String taskStatus) {
 		Task task = new Task();
+        if (!StringUtils.isEmpty(taskId)) {
+            task.setId(new Integer(taskId));
+        }
 		task.setDescription(taskDescription);
-		return taskRepository.save(task);
+		task.setContext(taskContext);
+		task.setStatus(taskStatus);
+		Task updatedTask = taskRepository.save(task);
+		printTaskCount();
+		return updatedTask;
+	}
+
+	public void printTaskCount() {
+		Collection<Task> tasks = taskRepository.findAll();
+		System.out.println("Tasks found: " + tasks.size());
 	}
 
 }

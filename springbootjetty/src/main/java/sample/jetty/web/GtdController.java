@@ -88,7 +88,14 @@ public class GtdController {
 	@ResponseBody
 //	@RequestParam("taskDescription")
 	public Task addTask(HttpServletRequest request) {
-		return gtdService.addTask(request.getParameter("taskDescription"));
+		Task task = gtdService.addTask(
+                request.getParameter("taskId"),
+                request.getParameter("taskDescription"),
+                request.getParameter("taskContext"),
+                request.getParameter("taskStatus")
+        );
+		gtdService.printTaskCount();
+		return task;
 	}
 //	public Task addTask(@PathVariable String taskDescription) {
 //		return gtdService.addTask(taskDescription);
