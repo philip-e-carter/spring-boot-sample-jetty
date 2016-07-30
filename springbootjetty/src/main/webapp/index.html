@@ -38,10 +38,24 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <input type="text" id="taskId" readonly/>
-                        <input type="text" id="taskDescription"/>
-                        <input type="text" id="taskContext"/>
-                        <input type="text" id="taskStatus"/>
+                        <div class="form    ">
+                            <div class="form-group">
+                                <label for="taskId">ID</label>
+                                <input type="text" class='form-control' id="taskId" readonly/>
+                            </div>
+                            <div class="form-group">
+                                <label for="taskDescription">Description</label>
+                                <input type="text" class='form-control' id="taskDescription"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="taskContext">Context</label>
+                                <input type="text" class='form-control' id="taskContext"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="taskStatus">Status</label>
+                                <input type="text" class='form-control' id="taskStatus"/>
+                            </div>
+                        </div>
                     </div>
                     <!-- dialog buttons -->
                     <div class="modal-footer">
@@ -100,29 +114,35 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
-                        Add Task
-                    </button>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Tasks
+                            <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#myModal">
+                                Add Task
+                            </button>
+                        </div>
+                        <div class="panel-body">
 
-                    <!--the Tasks grid using jqGrid -->
-                    <table id="list"></table>
-                    <div id="pager"></div>
+                            <!--the Tasks grid using jqGrid -->
+                            <table id="list"></table>
+                            <div id="pager"></div>
 
-                    <!--the Tasks grid using custom js -->
-                    <table class="table table-bordered table-striped">
-                        <thead class=thead'>
-                            <tr>
-                                <th>ID</th>
-                                <th>Description</th>
-                                <th>Context</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="taskListBody">
-                            <!-- dynamically populated -->
-                        </tbody>
-                    </table>
-
+                            <!--the Tasks grid using custom js -->
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead class=thead'>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Description</th>
+                                        <th>Context</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="taskListBody">
+                                    <!-- dynamically populated -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

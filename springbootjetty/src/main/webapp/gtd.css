@@ -1,4 +1,13 @@
 thead{
-    color : white;
-    background-color: grey ;
+    color : black;
+    background-color: #b5b5b5;
+}
+
+.panel-heading {
+    color: white;
+    background-color: grey;
+}
+
+.panel-body {
+    padding: 0;
 }
