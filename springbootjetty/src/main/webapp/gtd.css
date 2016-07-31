@@ -1,11 +1,12 @@
 thead{
     color : black;
-    background-color: #b5b5b5;
+    background-color: #cccccc;
 }
 
-.panel-heading {
+.panel-default .panel-heading {
     color: white;
-    background-color: grey;
+    background-color: dimgrey;
+    background-image: none;
 }
 
 .panel-body {
