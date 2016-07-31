@@ -12,3 +12,9 @@ thead{
 .panel-body {
     padding: 0;
 }
+
+
+/* for some reason, perhaps because I'm not using MD correctly, the icons are really wide. */
+.material-icons {
+    width: 30px;
+}

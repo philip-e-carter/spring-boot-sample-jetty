@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" media="screen" href="css/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="jqGrid/css/ui.jqgrid.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
         <link rel="stylesheet" type="text/css" media="screen" href="gtd.css" />
 
@@ -59,7 +60,8 @@
                     </div>
                     <!-- dialog buttons -->
                     <div class="modal-footer">
-                        <button id="insertOkButton" type="button" class="btn btn-primary">OK</button>
+                        <i id="insertOkButton" class="material-icons">check circle</i>
+                        <!--<button id="insertOkButton" type="button" class="btn btn-primary">OK</button>-->
                     </div>
                 </div>
             </div>
@@ -117,9 +119,10 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Tasks
-                            <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#myModal">
-                                Add Task
-                            </button>
+                            <div class="pull-right" data-toggle="modal" data-target="#myModal">
+                                <!--Add Task-->
+                                <i class="material-icons md-dark" style="text-align: center;">add circle</i>
+                            </div>
                         </div>
                         <div class="panel-body">
 
@@ -135,6 +138,7 @@
                                         <th>Description</th>
                                         <th>Context</th>
                                         <th>Status</th>
+                                        <th style="text-align: center;"><i class="material-icons">remove circle</i></th>
                                     </tr>
                                 </thead>
                                 <tbody id="taskListBody">
@@ -155,28 +159,29 @@
             // this doesn't work, header links are not clickable; can't even see it in page source since it's created via js
             //$("#header").load("header.html");
 
+            var submitTaskModal = $("#myModal");
             drawTaskGrid();
 
 
-            $("#myModal").modal({// wire up the actual modal functionality and show the dialog
+            submitTaskModal.modal({// wire up the actual modal functionality and show the dialog
                 "backdrop": "static",
                 "keyboard": true,
                 "show": false                     // ensure the modal is shown immediately
             });
-            $("#myModal").on("show", function () {    // wire up the OK button to dismiss the modal when shown
+            submitTaskModal.on("show", function () {    // wire up the OK button to dismiss the modal when shown
                 console.log("show");
-                $("#insertOkButton").on("click", function (e) {
+                $("#insertOkButton").on("click", function () {
                     console.log("button pressed");   // just as an example...
                     $("#myModal").modal('hide');     // dismiss the dialog
                 });
             });
 
-            $("#myModal").on("hide", function () {    // remove the event listeners when the dialog is dismissed
+            submitTaskModal.on("hide", function () {    // remove the event listeners when the dialog is dismissed
                 $("#myModal a.btn").off("click");
             });
 
-            $("#myModal").on("hidden", function () {  // remove the actual elements from the DOM when fully hidden
-                $("#myModal").remove();
+            submitTaskModal.on("hidden", function () {  // remove the actual elements from the DOM when fully hidden
+                submitTaskModal.remove();
             });
             $("#insertOkButton").on("click", function() {
                 console.log('ok');
@@ -187,7 +192,7 @@
                     method: 'POST',
                     data: {
                           'taskId': $("#taskId").val()
-                        , 'taskDescription': $("#taskDescription").val()
+                        , 'taskDescription': desc
                         , 'taskContext': $("#taskContext").val()
                         , 'taskStatus': $("#taskStatus").val()
                     }

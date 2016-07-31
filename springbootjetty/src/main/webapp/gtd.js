@@ -38,6 +38,7 @@ function drawTaskGrid() {
                 + '<td>' + data[i]['description'] + '</td>'
                 + '<td>' + data[i]['context'] + '</td>'
                 + '<td>' + data[i]['status'] + '</td>'
+                + '<td style="text-align : center;">' + '<i class="material-icons">remove circle</i>' + '</td>'
             + '</tr>';
             $('#taskListBody').append(tr);
         }
