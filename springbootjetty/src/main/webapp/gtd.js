@@ -32,13 +32,14 @@ function drawTaskGrid() {
         method: 'GET'
     }).success(function (data) {
         for (var i = 0; i < data.length; i++) {
-            console.log(data[i]['description']);
+            //console.log(data[i]['description']);
             var tr = '<tr>'
                 + '<td>' + data[i]['id'] + '</td>'
                 + '<td>' + data[i]['description'] + '</td>'
                 + '<td>' + data[i]['context'] + '</td>'
                 + '<td>' + data[i]['status'] + '</td>'
-                + '<td style="text-align : center;">' + '<i class="material-icons">remove circle</i>' + '</td>'
+                + '<td style="text-align : center;">' + '<i class="material-icons" data-taskid="' + data[i]['id'] + '">remove circle</i>' + '</td>'
+                //+ '<td class="temp123">click</td>'
             + '</tr>';
             $('#taskListBody').append(tr);
         }

@@ -205,6 +205,31 @@
                 });
             });
 
+            //***   delete task   ***//
+            $('body').on('click', '[data-taskid]', function() {
+                var taskId = $(this).data('taskid');
+                console.log('delete clicked on ' + taskId);
+                $.ajax({
+                    url: 'deleteTask',
+                    method: 'POST',
+                    data: {
+                        'taskId': taskId
+                    }
+                }).success(function (data) {
+                    console.log('delete successful');
+                    drawTaskGrid();
+                });
+            });
+//            $('#bogus').on('click', function() {
+//               console.log('bogus clicked');
+//            });
+//            $("body").on('click', ".material-icons", function() {
+//               console.log('matier clicked');
+//            });
+//            $('body').on("click", '.temp123', function() {
+//               console.log('temp123 clicked');
+//            });
+
             // this breaks the pages javascript; opening by click does not
 //            $("#myModal").show();
 

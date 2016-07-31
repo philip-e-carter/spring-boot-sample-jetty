@@ -60,6 +60,11 @@ public class GtdService {
 		return updatedTask;
 	}
 
+    public void deleteTask(String taskId) {
+        Task task = taskRepository.findOne(new Integer(taskId));
+        taskRepository.delete(task);
+    }
+
 	public void printTaskCount() {
 		Collection<Task> tasks = taskRepository.findAll();
 		System.out.println("Tasks found: " + tasks.size());
