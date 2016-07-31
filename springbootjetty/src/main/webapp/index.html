@@ -200,8 +200,8 @@
                     $('#divId').text(data);
                     // jQuery doesnt seem to support relative; create function to get page size and scale?
                     $('#house').offset({top: 200, left: 300});
-                    drawTaskGrid();
-                    $("#myModal").remove();
+                    redrawTaskGrid(data);
+                    $("#myModal").hide();
                 });
             });
 
@@ -217,7 +217,7 @@
                     }
                 }).success(function (data) {
                     console.log('delete successful');
-                    drawTaskGrid();
+                    redrawTaskGrid(data);
                 });
             });
 //            $('#bogus').on('click', function() {

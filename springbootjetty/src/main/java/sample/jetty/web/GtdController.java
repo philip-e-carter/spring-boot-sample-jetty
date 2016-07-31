@@ -86,7 +86,7 @@ public class GtdController {
 
 	@RequestMapping(value="/addTask", method=RequestMethod.POST)
 	@ResponseBody
-	public Task addTask(HttpServletRequest request) {
+	public Collection<Task> addTask(HttpServletRequest request) {
 		Task task = gtdService.addTask(
                 request.getParameter("taskId"),
                 request.getParameter("taskDescription"),
@@ -94,14 +94,14 @@ public class GtdController {
                 request.getParameter("taskStatus")
         );
 		gtdService.printTaskCount();
-		return task;
+		return gtdService.getTasks();
 	}
 
 	@RequestMapping(value="/deleteTask", method=RequestMethod.POST)
 	@ResponseBody
-	public String deleteTask(HttpServletRequest request) {
+	public Collection<Task> deleteTask(HttpServletRequest request) {
 		gtdService.deleteTask(request.getParameter("taskId"));
-		return "";
+        return gtdService.getTasks();
 	}
 
 }

@@ -31,22 +31,25 @@ function drawTaskGrid() {
         url: 'jqgridData',
         method: 'GET'
     }).success(function (data) {
-        for (var i = 0; i < data.length; i++) {
-            //console.log(data[i]['description']);
-            var tr = '<tr>'
-                + '<td>' + data[i]['id'] + '</td>'
-                + '<td>' + data[i]['description'] + '</td>'
-                + '<td>' + data[i]['context'] + '</td>'
-                + '<td>' + data[i]['status'] + '</td>'
-                + '<td style="text-align : center;">' + '<i class="material-icons" data-taskid="' + data[i]['id'] + '">remove circle</i>' + '</td>'
+        redrawTaskGrid(data);
+    });
+}
+
+function redrawTaskGrid(data) {
+    var taskListBody = $('#taskListBody');
+    taskListBody.html('');
+    for (var i = 0; i < data.length; i++) {
+        var tr = '<tr>'
+            + '<td>' + data[i]['id'] + '</td>'
+            + '<td>' + data[i]['description'] + '</td>'
+            + '<td>' + data[i]['context'] + '</td>'
+            + '<td>' + data[i]['status'] + '</td>'
+            + '<td style="text-align : center;">' + '<i class="material-icons" data-taskid="' + data[i]['id'] + '">remove circle</i>' + '</td>'
                 //+ '<td class="temp123">click</td>'
             + '</tr>';
-            $('#taskListBody').append(tr);
-        }
-        //$(data).each(function(task) {
-        //   console.log(task['description']);
-        //});
-    });}
+        taskListBody.append(tr);
+    }
+}
 
 function test() {
     $.ajax({
